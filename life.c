@@ -3,9 +3,6 @@
 #define WIDTH 800
 #define HEIGHT 800
 
-
-
-
 SDL_Surface* srf = NULL;
 uint32_t life[WIDTH][HEIGHT];
 void step();
@@ -17,7 +14,6 @@ int main() {
   SDL_Init(SDL_INIT_VIDEO);
   srf = SDL_SetVideoMode(WIDTH, HEIGHT, 32, SDL_SWSURFACE);
   init();
-  
   
   SDL_Event event;
   while(1) {
@@ -44,8 +40,6 @@ int main() {
   SDL_Quit();
   return 0;
 }
-
-
 
 void init() {
 
