@@ -1,0 +1,6 @@
+
+Simple Game of Life
+
+Press space to start/stop, escape to exit. 
+
+Along with the the rgular cell action, tere is random "noise" added by random cells coming to "life"
