@@ -42,15 +42,15 @@ int main() {
 }
 
 void init() {
-
+  srand(time());
   SDL_FillRect(srf, 0, 0x00000000);
   int x, y;
-  for(y=0;y<HEIGHT;y++) {
+  /*for(y=0;y<HEIGHT;y++) {
     for(x=0;x<WIDTH;x++) {
       if((rand() % 10) == 1) 
         set_point(x, y, 0x0000ff00);
     } 
-  }
+  }*/
   SDL_UpdateRect(srf, 0, 0, 0, 0);
   
 }
@@ -171,7 +171,7 @@ void step() {
   for(y=0;y<HEIGHT;y++) {
     for(x=0;x<WIDTH;x++) {
       int n = living_neighbours(x, y);
-      if(!get_point(x,y) && !(rand() % 10000)) {
+      if(!get_point(x,y) && !(rand() % 1000)) {
         set_point(x, y, 0x0000ff00);
         continue;
       }
