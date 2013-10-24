@@ -4,6 +4,9 @@
 #define HEIGHT 800
 #define MAXW (WIDTH - 1)
 #define MAXH (HEIGHT - 1)
+#define RANDOM_FACTOR 1000
+#define BLACK 0x00000000
+#define GREEN 0x0000ff00
 
 SDL_Surface* srf = NULL;
 uint32_t life[WIDTH][HEIGHT];
@@ -48,12 +51,12 @@ int main() {
 
 void init() {
   srand(time());
-  SDL_FillRect(srf, 0, 0x00000000);
+  SDL_FillRect(srf, 0, BLACK);
   int x, y;
   for(y=0;y<HEIGHT;y++) {
     for(x=0;x<WIDTH;x++) {
       if((rand() % 10) == 1) 
-        set_point(x, y, 0x0000ff00);
+        set_point(x, y, GREEN);
     } 
   }
   SDL_UpdateRect(srf, 0, 0, 0, 0);
@@ -176,20 +179,20 @@ void step() {
   for(y=0;y<HEIGHT;y++) {
     for(x=0;x<WIDTH;x++) {
       int n = living_neighbours(x, y);
-      if(!get_point(x,y) && !(rand() % 1000)) {
-        set_point(x, y, 0x0000ff00);
+      if(!get_point(x,y) && !(rand() % RANDOM_FACTOR)) {
+        set_point(x, y, GREEN);
         continue;
       }
       if(n < 2) {
-        set_point(x, y, 0x00000000);
+        set_point(x, y, BLACK);
         continue;
       }
       if(n > 3) {
-        set_point(x, y, 0x00000000);
+        set_point(x, y, BLACK);
         continue; 
       }
       if(n == 3) {
-        set_point(x, y, 0x0000ff00);
+        set_point(x, y, GREEN);
       }
     } 
   }

@@ -2,8 +2,8 @@
 
 all: life
 
-life:
+life: life.c
 	gcc life.c -o life -lSDL
 
 clean:
-	rm life
+	rm -f life
