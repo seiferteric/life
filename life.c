@@ -1,5 +1,6 @@
 #include <SDL/SDL.h>
 #include <stdint.h>
+#include <time.h>
 #define WIDTH 800
 #define HEIGHT 800
 #define MAXW (WIDTH - 1)
@@ -50,7 +51,7 @@ int main() {
 }
 
 void init() {
-  srand(time());
+  srand(time(NULL));
   SDL_FillRect(srf, 0, BLACK);
   int x, y;
   for(y=0;y<HEIGHT;y++) {
@@ -65,8 +66,6 @@ void init() {
 
 
 uint32_t get_point(int x, int y) {
- 
-  //return *((unsigned int*)srf->pixels + (WIDTH*y + x));
   return life[y][x];
 }
 
